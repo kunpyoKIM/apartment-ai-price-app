@@ -1,4 +1,4 @@
-# apartment-ai-price-app-final
+# apartment-ai-price-app
 
 아파트·근린상가 분양 및 거래가액 분석 앱
 
