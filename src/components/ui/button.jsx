@@ -7,8 +7,7 @@ export function Button({
   size = "default",
   ...props
 }) {
-  const base =
-    "inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors disabled:pointer-events-none disabled:opacity-50";
+  const base = "inline-flex items-center justify-center whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50";
   const variantClass =
     variant === "outline"
       ? "border border-slate-300 bg-white text-slate-900 hover:bg-slate-100"

@@ -131,7 +131,7 @@ function Field({ label, value, onChange, unit, wide = false }) {
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-9 w-full rounded-xl border border-amber-200 bg-amber-50 px-3 text-right text-sm text-slate-900 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-200 dark:border-slate-500 dark:bg-slate-950 dark:text-white"
+        className="h-9 w-full rounded-xl border border-emerald-200 bg-emerald-50 px-3 text-right text-sm text-slate-900 outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-slate-500 dark:bg-slate-950 dark:text-white"
       />
     </label>
   );
@@ -144,7 +144,7 @@ function SelectField({ label, value, onChange, options }) {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-9 w-full rounded-xl border border-amber-200 bg-amber-50 px-3 text-sm text-slate-900 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-200 dark:border-slate-500 dark:bg-slate-950 dark:text-white"
+        className="h-9 w-full rounded-xl border border-emerald-200 bg-emerald-50 px-3 text-sm text-slate-900 outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-200 dark:border-slate-500 dark:bg-slate-950 dark:text-white"
       >
         {options.map((o) => <option key={o} value={o}>{o}</option>)}
       </select>
@@ -173,7 +173,7 @@ function ScoreBar({ label, value }) {
         <span>{fmt(safe)}점</span>
       </div>
       <div className="h-2.5 rounded-full bg-slate-100 dark:bg-slate-700">
-        <div className="h-2.5 rounded-full bg-amber-400" style={{ width: `${safe}%` }} />
+        <div className="h-2.5 rounded-full bg-emerald-400" style={{ width: `${safe}%` }} />
       </div>
     </div>
   );
@@ -321,7 +321,7 @@ export default function ApartmentReverseEstimatorApp() {
         <div className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 px-4 py-3 backdrop-blur dark:border-slate-700 dark:bg-slate-950/95 print:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
-              <div className="text-xs font-semibold text-amber-700 dark:text-white">전국 소규모지역 AI 분양가·거래가 예측 시스템</div>
+              <div className="text-xs font-semibold text-emerald-700 dark:text-white">전국 소규모지역 AI 분양가·거래가 예측 시스템</div>
               <h1 className="text-xl font-bold md:text-2xl">아파트·근린상가 분양 및 거래가액 분석 앱</h1>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -339,7 +339,7 @@ export default function ApartmentReverseEstimatorApp() {
         </div>
 
         <main className="mx-auto max-w-7xl space-y-4 p-4 print:max-w-none print:p-0">
-          <Section title="신규사업지 입력" icon={FileText} right={<Badge className="bg-amber-100 text-amber-800 hover:bg-amber-100">대표지번 연동</Badge>}>
+          <Section title="신규사업지 입력" icon={FileText} right={<Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100">대표지번 연동</Badge>}>
             <div className="grid gap-3 md:grid-cols-4">
               <Field label="대표지번" value={newLotNumber} onChange={(v) => { setNewLotNumber(v); setSelectedIndex(0); }} unit="입력" wide />
               <Field label="토지면적" value={newLandArea} onChange={setNewLandArea} unit="평" />
@@ -363,12 +363,12 @@ export default function ApartmentReverseEstimatorApp() {
             </div>
           </Section>
 
-          <Section title="현재 신규사업지 주변 분양중 위치" icon={Search} right={<Badge className="bg-amber-100 text-amber-800 hover:bg-amber-100">거리순 {nearbyProjects.length}건</Badge>}>
+          <Section title="현재 신규사업지 주변 분양중 위치" icon={Search} right={<Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100">거리순 {nearbyProjects.length}건</Badge>}>
             <div className="max-h-72 overflow-auto rounded-2xl border border-slate-200 dark:border-slate-700">
               <table className="min-w-[900px] w-full text-sm dark:text-white">
                 <thead className="sticky top-0 bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-white">
                   <tr>
-                    <th className="w-24 p-2 text-left print:hidden">선택</th>
+                    <th className="w-44 p-3 text-left print:hidden">선택</th>
                     <th className="p-2 text-left">순위</th>
                     <th className="p-2 text-left">단지명</th>
                     <th className="p-2 text-left">위치</th>
@@ -379,27 +379,27 @@ export default function ApartmentReverseEstimatorApp() {
                 </thead>
                 <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
                   {nearbyProjects.map((p, i) => (
-                    <tr key={p.name} className={i === selectedIndex ? "bg-amber-50 dark:bg-amber-900/35" : "bg-white dark:bg-slate-900"}>
-                      <td className="p-2 print:hidden">
+                    <tr key={p.name} className={i === selectedIndex ? "bg-emerald-50 dark:bg-emerald-900/35" : "bg-white dark:bg-slate-900"}>
+                      <td className="p-3 print:hidden">
                         <Button
                           size="sm"
                           variant="outline"
                           className={
                             i === selectedIndex
-                              ? "h-8 rounded-xl border-amber-500 bg-amber-400 text-slate-950 hover:bg-amber-300 dark:border-amber-300 dark:bg-amber-400 dark:text-slate-950 dark:hover:bg-amber-300"
-                              : "h-8 rounded-xl border-slate-300 bg-white text-slate-800 hover:bg-slate-100 dark:border-slate-500 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
+                              ? "h-14 min-w-[150px] rounded-2xl border-emerald-500 bg-emerald-400 px-6 text-lg font-bold text-slate-950 shadow-lg shadow-emerald-900/20 hover:bg-emerald-300 dark:border-emerald-300 dark:bg-emerald-400 dark:text-slate-950 dark:hover:bg-emerald-300"
+                              : "h-14 min-w-[150px] rounded-2xl border-slate-300 bg-white px-6 text-lg font-bold text-slate-800 shadow-md shadow-slate-900/10 hover:bg-slate-50 dark:border-slate-500 dark:bg-slate-800 dark:text-white dark:shadow-black/30 dark:hover:bg-slate-700"
                           }
                           onClick={() => setSelectedIndex(i)}
                         >
-                          <MousePointerClick className="mr-1 h-3 w-3" /> {i === selectedIndex ? "선택됨" : "선택"}
+                          <MousePointerClick className="mr-3 h-6 w-6" /> {i === selectedIndex ? "선택됨" : "선택"}
                         </Button>
                       </td>
-                      <td className="p-2 font-semibold">{i + 1}</td>
-                      <td className="p-2 font-semibold">{p.name}</td>
-                      <td className="p-2 text-slate-600 dark:text-white">{p.address}</td>
-                      <td className="p-2 text-right">{p.distance.toFixed(1)} km</td>
-                      <td className="p-2 text-right">{p.households ? fmt(p.households) : "확인필요"}</td>
-                      <td className="p-2 text-slate-600 dark:text-white">{p.status}</td>
+                      <td className="p-3 font-semibold">{i + 1}</td>
+                      <td className="p-3 font-semibold">{p.name}</td>
+                      <td className="p-3 text-slate-600 dark:text-white">{p.address}</td>
+                      <td className="p-3 text-right">{p.distance.toFixed(1)} km</td>
+                      <td className="p-3 text-right">{p.households ? fmt(p.households) : "확인필요"}</td>
+                      <td className="p-3 text-slate-600 dark:text-white">{p.status}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -416,7 +416,7 @@ export default function ApartmentReverseEstimatorApp() {
               <SmallCard icon={Store} title="상가 적정분양가" value={result.newRetailSalePy ? fmt(result.newRetailSalePy) : "자료확인"} sub="천원/평" />
               <SmallCard icon={ShieldCheck} title="PF 등급" value={result.pfGrade} sub={`총수입 ${fmt(result.newTotalRevenue)}천원`} />
             </div>
-            <div className="mt-3 rounded-2xl border border-amber-200 bg-amber-50 p-3 text-sm leading-6 text-slate-700 dark:border-amber-700 dark:bg-amber-950/40 dark:text-white">
+            <div className="mt-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-3 text-sm leading-6 text-slate-700 dark:border-emerald-700 dark:bg-emerald-950/40 dark:text-white">
               추정사유: 대표지번 기준 자동인식 지역은 {autoRegion.metro} {autoRegion.city} {autoRegion.dong}임. 가장 가까운 비교단지인 {selected.name}의 분양평단가, 최근 거래평단가, 전세 역산 매매가, 월세 수익환산가를 기준으로 하며, 브랜드 {brandName} 및 커뮤니티·주차·평면 수준을 반영함.
             </div>
           </Section>
@@ -455,7 +455,7 @@ export default function ApartmentReverseEstimatorApp() {
                   <tr><td className="p-2 font-semibold">분양평단가</td><td className="p-2 text-right">{fmt(selected.aptSale)}</td><td className="p-2 text-right">{selected.retailSale ? fmt(selected.retailSale) : "자료확인"}</td></tr>
                   <tr><td className="p-2 font-semibold">거래평단가</td><td className="p-2 text-right">{fmt(selected.aptDeal)}</td><td className="p-2 text-right">{selected.retailDeal ? fmt(selected.retailDeal) : "자료확인"}</td></tr>
                   <tr><td className="p-2 font-semibold">전세·월세</td><td className="p-2 text-right">전세 {fmt(selected.jeonse)}</td><td className="p-2 text-right">보증금 {fmt(selected.deposit)} / 월세 {fmt(selected.rent)}</td></tr>
-                  <tr className="bg-amber-50 dark:bg-amber-900/30"><td className="p-2 font-bold">AI 예상 거래가액</td><td className="p-2 text-right font-bold">{fmt(result.aiAptPy)}</td><td className="p-2 text-right font-bold">{result.aiRetailPy ? fmt(result.aiRetailPy) : "자료확인"}</td></tr>
+                  <tr className="bg-emerald-50 dark:bg-emerald-900/30"><td className="p-2 font-bold">AI 예상 거래가액</td><td className="p-2 text-right font-bold">{fmt(result.aiAptPy)}</td><td className="p-2 text-right font-bold">{result.aiRetailPy ? fmt(result.aiRetailPy) : "자료확인"}</td></tr>
                 </tbody>
               </table>
             </div>
@@ -471,8 +471,8 @@ export default function ApartmentReverseEstimatorApp() {
                   <tr><td className="p-2 font-semibold">신규 연면적</td><td className="p-2 text-right">{fmt(toNum(newAptArea))} 평</td><td className="p-2 text-right">{fmt(toNum(newRetailArea))} 평</td><td className="p-2">입력 연면적 기준</td></tr>
                   <tr><td className="p-2 font-semibold">참조 분양평단가</td><td className="p-2 text-right">{fmt(selected.aptSale)} 천원/평</td><td className="p-2 text-right">{selected.retailSale ? `${fmt(selected.retailSale)} 천원/평` : "자료확인"}</td><td className="p-2">선택 비교단지 분양가</td></tr>
                   <tr><td className="p-2 font-semibold">AI 자동보정</td><td className="p-2 text-right">입지 {result.locationPremium.toFixed(1)}% / 상품 {result.productPremium.toFixed(1)}% / 위험 -{result.riskDiscount.toFixed(1)}%</td><td className="p-2 text-right">동일 기준</td><td className="p-2">브랜드·수요·위험 자동산출</td></tr>
-                  <tr className="bg-amber-50 dark:bg-amber-900/30"><td className="p-2 font-bold">신규 적정 분양가</td><td className="p-2 text-right font-bold">{fmt(result.newAptSalePy)} 천원/평</td><td className="p-2 text-right font-bold">{result.newRetailSalePy ? `${fmt(result.newRetailSalePy)} 천원/평` : "자료확인"}</td><td className="p-2">거래·임대·수요 보정 후 산출</td></tr>
-                  <tr className="bg-amber-50 dark:bg-amber-900/30"><td className="p-2 font-bold">총 분양수입</td><td className="p-2 text-right font-bold">{fmt(result.newAptRevenue)} 천원</td><td className="p-2 text-right font-bold">{fmt(result.newRetailRevenue)} 천원</td><td className="p-2">합계 {fmt(result.newTotalRevenue)} 천원</td></tr>
+                  <tr className="bg-emerald-50 dark:bg-emerald-900/30"><td className="p-2 font-bold">신규 적정 분양가</td><td className="p-2 text-right font-bold">{fmt(result.newAptSalePy)} 천원/평</td><td className="p-2 text-right font-bold">{result.newRetailSalePy ? `${fmt(result.newRetailSalePy)} 천원/평` : "자료확인"}</td><td className="p-2">거래·임대·수요 보정 후 산출</td></tr>
+                  <tr className="bg-emerald-50 dark:bg-emerald-900/30"><td className="p-2 font-bold">총 분양수입</td><td className="p-2 text-right font-bold">{fmt(result.newAptRevenue)} 천원</td><td className="p-2 text-right font-bold">{fmt(result.newRetailRevenue)} 천원</td><td className="p-2">합계 {fmt(result.newTotalRevenue)} 천원</td></tr>
                 </tbody>
               </table>
             </div>
@@ -508,7 +508,7 @@ export default function ApartmentReverseEstimatorApp() {
                     <td className="p-2">미분양위험 {unsoldRisk}점, 정책위험 {policyRisk}점, 공급부족 {supplyScore}점, 미분양 확률 {fmt(result.unsoldProbability)}%</td>
                     <td className="p-2">위험등급 {result.riskLabel}로 평가되며, 미분양·정책·공급 리스크를 분양가 할인요인으로 반영함.</td>
                   </tr>
-                  <tr className="bg-amber-50 dark:bg-amber-900/30">
+                  <tr className="bg-emerald-50 dark:bg-emerald-900/30">
                     <td className="p-2 font-bold">순보정률</td>
                     <td className="p-2 text-right font-bold">{(result.locationPremium + result.productPremium - result.riskDiscount).toFixed(1)}%</td>
                     <td className="p-2">입지보정 + 상품보정 - 위험할인</td>
